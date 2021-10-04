@@ -148,7 +148,7 @@ type OptionalKeys<T> = T extends any
 
 type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
-export type UnionLike<T> = [T] extends [Date | FileList | File | NestedValue]
+export type UnionLike<T> = [T] extends [NestedValue]
   ? T
   : [T] extends [ReadonlyArray<any>]
   ? { [K in keyof T]: UnionLike<T[K]> }
